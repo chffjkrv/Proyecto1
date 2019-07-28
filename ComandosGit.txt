@@ -1,38 +1,36 @@
 Comandos GIT:
 
- git config --global user.email "email"email.com"												Añadimos el correo del usuario que se utiliza.
+ git config --global user.email "email"email.com"----------------------------Añadimos el correo del usuario que se utiliza.
  
- git config --global user.name "mellamoEarl"													Añadimos el nombre de usuario que deseamos.
+ git config --global user.name "mellamoEarl""----------------------------Añadimos el nombre de usuario que deseamos.
 
- git init																												Iniciar repositorio en el directorio del proyecto.
+ git init"----------------------------Iniciar repositorio en el directorio del proyecto.
 				
- git add 																											Preparar los archivos para subir al repositorio posteriormente mediante el comando commit (Que se encuentre en la carpeta del archivo no
-																														significa que esté subido al repositorio).
-			+ *.extension																						Subes todos los achivos con la msima extension (.html, .css, .txt, .java, etc)
-       		+	/nomDirectorio																					Subes toda la carpeta.
-			+ --all																									Subes todo de todo.
-			+ .																										Subes todo de todo.
+ git add"----------------------------Preparar los archivos para subir al repositorio posteriormente mediante el comando commit (Que se encuentre en la carpeta del archivo no significa que esté subido al repositorio).
+ 
+			+ *.extension"----------------------------Subes todos los achivos con la msima extension (.html, .css, .txt, .java, etc)
+       		+	/nomDirectorio"----------------------------Subes toda la carpeta.
+			+ --all"----------------------------Subes todo de todo.
+			+ ."----------------------------Subes todo de todo.
 			
-git status																											Comprobamos que archivos o carpetas tenemos en el add, esperando el commit. 
+git status"----------------------------Comprobamos que archivos o carpetas tenemos en el add, esperando el commit. 
 
-git commit -m  "comentario"																			Subimos al repositorio todos los archivos que anteriormente hemos preparado con el add, el comando -m " " es para añadir un mensaje identificatorio
-																														de cada commit. Esto es importante ya que si en algún momento hay que volver atras en el tiempo y no tenemos un Delorian, usaremos otro comando
-																														para recuperar versiones anteriores.
+git commit -m  "comentario""----------------------------Subimos al repositorio todos los archivos que anteriormente hemos preparado con el add, el comando -m " " es para añadir un mensaje identificatorio de cada commit. Esto es importante ya que si en algún momento hay que volver atras en el tiempo y no tenemos un Delorian, usaremos otro comando para recuperar versiones anteriores.
 													
-git push 																											Subir commit a repositorio remoto.
+git push"----------------------------Subir commit a repositorio remoto.
 
-git pull																												Bajarse novedades y cambios de repositorio remoto.
+git pull"----------------------------Bajarse novedades y cambios de repositorio remoto.
 
-git log																												Vemos la lista y los hash de los commit producidos.
+git log"----------------------------Vemos la lista y los hash de los commit producidos.
 
-git diff <nombredearchivo>																				Vemos las diferencias del archivo que tenemos sin subir y el que tenemos con commit.
+git diff <nombredearchivo>"----------------------------Vemos las diferencias del archivo que tenemos sin subir y el que tenemos con commit.
 
   		
-git clone git://github.com/chffjkrv/Proyecto1.git												Descargar el proyecto desde github creando automaticamente un repositorio local sobre el que trabajar.
+git clone git://github.com/chffjkrv/Proyecto1.git"----------------------------Descargar el proyecto desde github creando automaticamente un repositorio local sobre el que trabajar.
 
-git remote add origin https://github.com/chffjkrv/Proyecto1.git     					Se conecta el repositorio existente con el repositorio de github.
+git remote add origin https://github.com/chffjkrv/Proyecto1.git"----------------------------Se conecta el repositorio existente con el repositorio de github.
 
-git push -u origin master																					Para añadir los commit a los repositorios de github.
+git push -u origin master"----------------------------Para añadir los commit a los repositorios de github.
 
  
  
