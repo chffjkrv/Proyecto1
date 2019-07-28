@@ -80,7 +80,7 @@ CREAR CONEXION JBDC PARA MÉTODOS
 	4.CREAR METODO "CREAR USUARIO"
 	
 	
-REVISAR ER DE LA BDD
+REVISAR ER DE LA BDD PARA POSIBLE CREACION DE NUEVAS TABLAS.
 
 -----------------------------------------------LUNES-------------------------------------------------------------	
 3-LISTAR USUARIOS**
