@@ -1,0 +1,42 @@
+CONTROL:
+---------
+	-Test.
+	-Main.
+
+MODELO:
+---------
+	-Pelis.
+	-Usuarios.
+	
+DAO:
+---------
+	-ConexionBD
+	-DAOException
+	-FactoriaDAOPelis 
+	-PelisDAOJDBC
+	-FactoriaUsuarios
+	-UsuariosDAOJDBC
+	-I_PelisDAO
+	-I_UsuarioDAO
+	
+GUI:
+---------
+	-MenuAddUser
+	-MenuAddPelis
+	-MenuListPelis.
+	-MenuListPelisCategory
+	-MenuListPelisMasVistas
+	-MenuListPelisMasValoradas
+	-MenuPelisNoVistas
+
+SERVICIOS:
+----------
+	-ListarUsuario.
+	-ListarPelis.
+	-ListarPelisCategoria.
+	-ListarPelisMasVistas.
+	-ListarPelisMasValoradas.
+	-ListarPelisNoVistas.
+
+	
+	
