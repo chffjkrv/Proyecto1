@@ -1,0 +1,6 @@
+TAREAS:
+--------------
+
+-Atomizar tareas del backlog.
+-Cambiar prioridad de tareas.
+
