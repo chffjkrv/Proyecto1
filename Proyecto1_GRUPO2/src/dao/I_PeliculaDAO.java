@@ -9,7 +9,7 @@ public interface I_PeliculaDAO {
 =======
 public interface I_PeliculaDAO extends AutoCloseable {
 
-	public void añadirPeli(Pelicula peli) throws DAOException;
+	public void crearPeli(Pelicula peli) throws DAOException;
 
 	public void modificarPeli(Pelicula peli) throws DAOException;
 
