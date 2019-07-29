@@ -25,6 +25,7 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 		
 		try (Statement stmt = con.createStatement()) {
 
+
             String query = "INSERT INTO PELICULAS VALUES (" + peli.getNombre() + ","
                     + "'" + peli.getAgnoPelicula() + "'," + "'" + peli.getCategoria() + "',"
                     + "'"  + ")";
@@ -32,6 +33,8 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
             String query1="INSERT INTO peliculas VALUES (" + peli.getNombre() + ","+ 
             		peli.getAgnoPelicula() + "'" + peli.getCategoria() + "')";
 
+            String query = "INSERT INTO peliculas VALUES (" + peli.getNombre() + ","+ 
+            		peli.getAgnoPelicula() + "'" + peli.getCategoria() + "')";
             if (stmt.executeUpdate(query) != 1) {
                 throw new DAOException("Error creando pelicula");
             }
