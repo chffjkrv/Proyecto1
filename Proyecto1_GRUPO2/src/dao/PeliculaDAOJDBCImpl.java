@@ -22,33 +22,34 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 
 	@Override
 	public void crearPeli(Pelicula peli) throws DAOException {
-		
+
 		try (Statement stmt = con.createStatement()) {
 
+			String query = "INSERT INTO PELICULAS VALUES (" + peli.getId() + ","
+                    + "'"+ peli.getNombre()+ "'," + peli.getAgnoPelicula() + "," +"'"
+					+ peli.getCategoria() + "')";
+			if (stmt.executeUpdate(query) != 1) {
+				throw new DAOException("Error creando pelicula");
+			}
+		} catch (SQLException se) {
+			// se.printStackTrace();
+			throw new DAOException("Error creando pelicula DAO", se);
+		}
 
-            String query = "INSERT INTO PELICULAS VALUES (" + peli.getNombre() + ","
-                    + "'" + peli.getAgnoPelicula() + "'," + "'" + peli.getCategoria() + "',"
-                    + "'"  + ")";
-
-            String query1="INSERT INTO peliculas VALUES (" + peli.getNombre() + ","+ 
-            		peli.getAgnoPelicula() + "'" + peli.getCategoria() + "')";
-
-            String query = "INSERT INTO peliculas VALUES (" + peli.getNombre() + ","+ 
-            		peli.getAgnoPelicula() + "'" + peli.getCategoria() + "')";
-            if (stmt.executeUpdate(query) != 1) {
-                throw new DAOException("Error creando pelicula");
-            }
-        } catch (SQLException se) {
-            //se.printStackTrace();
-            throw new DAOException("Error creando pelicula DAO", se);
-        }
-		
-		
 	}
 
 	@Override
 	public void modificarPeli(Pelicula peli) throws DAOException {
-
+		try (Statement stmt = con.createStatement()) {
+			String query = "UPDATE peliculas " + "SET nombre='" + peli.getNombre() + "'," + "anio_estreno='"
+					+ peli.getAgnoPelicula() + "'," + "categoria='" + peli.getCategoria() + "'," + "WHERE id_pelicula="
+					+ peli.getId();
+			if (stmt.executeUpdate(query) != 1) {
+				throw new DAOException("Error modificando pelicula");
+			}
+		} catch (SQLException se) {
+			throw new DAOException("Error modificando pelicula in DAO", se);
+		}
 	}
 
 	@Override
@@ -74,24 +75,23 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 	public Pelicula findById(int id) throws DAOException {
 
 		try (Statement stmt = con.createStatement()) {
-			String query = "SELECT * FROM PELICULAS WHERE ID=" + id;
+			String query = "SELECT * FROM PELICULAS WHERE id_pelicula=" + id;
 			ResultSet rs = stmt.executeQuery(query);
 			if (!rs.next()) {
 				return null;
 			}
-			return (new Pelicula(rs.getString("Nombre"), rs.getInt("Agno pelicula"), rs.getString("Categoria")));
+			return (new Pelicula(rs.getInt("ID"),rs.getString("Nombre"), rs.getInt("Agno pelicula"), rs.getString("Categoria")));
 
 		} catch (SQLException se) {
 			// se.printStackTrace();
 			throw new DAOException("Error encontrando pelicula en DAO", se);
 		}
 
-		
 	}
 
 	@Override
 	public Pelicula[] listarPeliculas() throws DAOException {
-
+		
 		return null;
 	}
 
