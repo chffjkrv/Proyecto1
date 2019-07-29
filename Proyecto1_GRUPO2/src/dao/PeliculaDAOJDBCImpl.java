@@ -24,15 +24,20 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 	public void crearPeli(Pelicula peli) throws DAOException {
 		
 		try (Statement stmt = con.createStatement()) {
+
             String query = "INSERT INTO PELICULAS VALUES (" + peli.getNombre() + ","
                     + "'" + peli.getAgnoPelicula() + "'," + "'" + peli.getCategoria() + "',"
                     + "'"  + ")";
+
+            String query1="INSERT INTO peliculas VALUES (" + peli.getNombre() + ","+ 
+            		peli.getAgnoPelicula() + "'" + peli.getCategoria() + "')";
+
             if (stmt.executeUpdate(query) != 1) {
-                throw new DAOException("Error adding employee");
+                throw new DAOException("Error creando pelicula");
             }
         } catch (SQLException se) {
             //se.printStackTrace();
-            throw new DAOException("Error adding employee in DAO", se);
+            throw new DAOException("Error creando pelicula DAO", se);
         }
 		
 		
@@ -75,7 +80,7 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 
 		} catch (SQLException se) {
 			// se.printStackTrace();
-			throw new DAOException("Error finding employee in DAO", se);
+			throw new DAOException("Error encontrando pelicula en DAO", se);
 		}
 
 		
