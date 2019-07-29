@@ -37,6 +37,7 @@ public class Pelicula {
 		public String toString() {
 			return "Pelicula [nombre=" + nombre + ", agnoPelicula=" + agnoPelicula + ", categoria=" + categoria
 					+ ", toString()=" + super.toString() + "]";
+			
 		}
 		
 }
