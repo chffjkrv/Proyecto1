@@ -21,22 +21,13 @@ DAO:
 	
 GUI:
 ---------
-	-MenuAddUser
-	-MenuAddPelis
-	-MenuListPelis.
-	-MenuListPelisCategory
-	-MenuListPelisMasVistas
-	-MenuListPelisMasValoradas
-	-MenuPelisNoVistas
+	-Menu.
 
 SERVICIOS:
 ----------
-	-ListarUsuario.
-	-ListarPelis.
-	-ListarPelisCategoria.
-	-ListarPelisMasVistas.
-	-ListarPelisMasValoradas.
-	-ListarPelisNoVistas.
+	-Listados.
+	-I_Listados
+	
 
 	
 	
