@@ -1,0 +1,3 @@
+- Creacion de BD en WorkBench
+- Creacion de la tabla peliculas en BD
+- Creacion de la clase DAOException en el paquete dao
