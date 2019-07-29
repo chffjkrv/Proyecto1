@@ -8,6 +8,11 @@ public class Usuario {
 	private String ciudad;
 	
 	
+	
+	public Usuario() {
+		super();
+	}
+
 	public Usuario(String nombre, Date fechaNacimiento, String ciudad) {
 		super();
 		this.nombre = nombre;

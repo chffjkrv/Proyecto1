@@ -7,6 +7,7 @@ public class Menu {
 		System.out.println(" Sistema de vídeo streaming ");
 		System.out.println("****************************************");
 		System.out.println(" Por favor, escoga una opcion: ");
-		System.out.println("    1.-Añadir/crear peliculas");
+		System.out.println("    1.Añadir/crear película");
+		System.out.println("    2.Añadir/crear usuario");
 	}
 }
