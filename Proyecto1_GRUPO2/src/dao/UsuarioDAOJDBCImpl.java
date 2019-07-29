@@ -1,11 +1,10 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Set;
-
-import model.Employee;
+import java.util.ArrayList;
 import modelo.Usuario;
 
 
@@ -53,12 +52,12 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 
 	@Override
 	public void deleteUsuario(String nombre) throws DAOException {
-		Usuario usu = findById(id);
-        if (emp == null) {
-            throw new DAOException("Employee id: " + id + " does not exist to delete.");
+		Usuario usu = findByNombreUsuario(nombre);
+        if (usu == null) {
+            throw new DAOException("Employee nombre: " + nombre + " does not exist to delete.");
         }
         try (Statement stmt = con.createStatement()) {
-            String query = "DELETE FROM EMPLOYEE WHERE ID=" + id;
+            String query = "DELETE FROM EMPLOYEE WHERE ID=" + nombre;
             if (stmt.executeUpdate(query) != 1) {
                 throw new DAOException("Error deleting employee");
             }
@@ -69,15 +68,38 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 	}
 
 	@Override
-	public Usuario findByNombreUsuario(int id) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public Usuario findByNombreUsuario(String nombre) throws DAOException {
+		 try (Statement stmt = con.createStatement()) {
+	            String query = "SELECT * FROM USUARIO WHERE NOMBRE=" + nombre;
+	            ResultSet rs = stmt.executeQuery(query);
+	            if (!rs.next()) {
+	                return null;
+	            }
+	            return (new Usuario(rs.getString("nombre"), rs.getDate("fecha_nacimiento"),
+	                    rs.getString("ciudad")));
+	        } catch (SQLException se) {
+	            //se.printStackTrace();
+	            throw new DAOException("Error finding employee in DAO", se);
+	        }
 	}
 
 	@Override
 	public Usuario[] getAllUsuarios() throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+        try (Statement stmt = con.createStatement()) {
+            String query = "SELECT * FROM usuario";
+            ResultSet rs = stmt.executeQuery(query);
+            // Create an ArrayList to save resulting records
+            ArrayList<Usuario> usuarios = new ArrayList<>();
+            // Iterate through the results and create Employee objects
+            while (rs.next()) {
+            	usuarios.add(new Usuario(rs.getString("nombre"), rs.getDate("fecha_nacimiento"),
+	                    rs.getString("ciudad")));
+            }
+            return usuarios.toArray(new Usuario[0]);
+        } catch (SQLException se) {
+            //se.printStackTrace();
+            throw new DAOException("Error getting all employees in DAO: " + se.getMessage(), se);
+        }
 	}
 
 
@@ -85,6 +107,13 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 	public void close() throws Exception {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public Usuario findByIdUsuario(int id) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
