@@ -17,7 +17,7 @@ public class PeliculaServ implements I_PeliculasServ{
 
 	@Override
 	public void modificarPeli(Pelicula peli) throws DAOException {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -35,8 +35,12 @@ public class PeliculaServ implements I_PeliculasServ{
 
 	@Override
 	public Pelicula[] listarPeliculas() throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		PeliculaDAOFactory factoryPeli=new PeliculaDAOFactory();
+		I_PeliculaDAO peliDao=factoryPeli.createPeliculaDAO();
+		
+		return peliDao.listarPeliculas();
+		
 	}
 
 	@Override

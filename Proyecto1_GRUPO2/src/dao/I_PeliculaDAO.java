@@ -15,6 +15,7 @@ public interface I_PeliculaDAO extends AutoCloseable {
 	public Pelicula[] listarPeliculas() throws DAOException;
 	
 	public Pelicula[] listarPeliculasCategorias(String categoria) throws DAOException;
+	
 }
 	
 	

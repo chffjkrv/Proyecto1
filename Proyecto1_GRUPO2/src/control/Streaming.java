@@ -1,5 +1,6 @@
 package control;
 import utilidades.Datos;
+import servicios.PeliculaServ;
 import modelo.Usuario;
 import modelo.Pelicula;
 import java.time.LocalDate;
@@ -89,8 +90,17 @@ public class Streaming {
 			switch(opcion) {
 			
 			case 1:
-				
-				//dao.I_PeliculaDAO.listarPeliculas();
+				PeliculaServ peliServ = new PeliculaServ();
+				Pelicula[] arrPeli = peliServ.listarPeliculas();
+
+				for (Pelicula xxx:  arrPeli) {
+
+					System.out.println("|-------------------------------------|");
+					System.out.println(xxx.getNombre());
+					System.out.println(xxx.getAgnoPelicula());
+					System.out.println(xxx.getCategoria());
+					System.out.println("|-------------------------------------|");
+				}
 			
 				break;
 				

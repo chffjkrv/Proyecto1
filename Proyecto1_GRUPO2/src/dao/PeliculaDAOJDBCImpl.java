@@ -102,7 +102,11 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 				pelis.add(new Pelicula(rs.getInt("id_pelicula"), rs.getString("pelicula"), rs.getInt("anio_estreno"),
 						rs.getString("categoria")));
 			}
-			return pelis.toArray(new Pelicula[0]);
+			Pelicula[] arrPeli = new Pelicula[pelis.size()];
+			pelis.toArray(arrPeli);
+			return arrPeli;
+			//	return pelis.toArray(new Pelicula[0]);
+			
 		} catch (SQLException se) {
 			// se.printStackTrace();
 			throw new DAOException("Error obteniendo peliculas en DAO: " + se.getMessage(), se);
