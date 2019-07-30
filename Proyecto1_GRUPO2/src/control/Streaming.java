@@ -95,15 +95,30 @@ public class Streaming {
 
 				for (Pelicula xxx:  arrPeli) {
 
-					System.out.println("|-------------------------------------|");
-					System.out.println(xxx.getNombre());
-					System.out.println(xxx.getAgnoPelicula());
-					System.out.println(xxx.getCategoria());
-					System.out.println("|-------------------------------------|");
+					System.out.println("|---------------------------------------------|");
+					System.out.println("	[Nombre: "+xxx.getNombre()+"]\n");
+					System.out.println("	[Anio estreno: "+xxx.getAgnoPelicula()+"]\n");
+					System.out.println("	[Categoria: "+xxx.getCategoria()+"]\n");
+					System.out.println("	[Id: "+xxx.getId()+"]\n");
+					System.out.println("|---------------------------------------------|");
 				}
 			
 				break;
-				
+			
+			case 2:
+				System.out.println("Introduzca la categoria que desea buscar:\n");
+				String categoria = Datos.recogeString();
+				PeliculaServ peliServ1 = new PeliculaServ();
+				Pelicula[] arrPeli1 = peliServ1.listarPeliculasCategorias(categoria);
+				 for (Pelicula xxx: arrPeli1) {
+						System.out.println("|---------------------------------------------|");
+						System.out.println("	[Nombre: "+xxx.getNombre()+"]\n");
+						System.out.println("	[Anio estreno: "+xxx.getAgnoPelicula()+"]\n");
+						System.out.println("	[Categoria: "+xxx.getCategoria()+"]\n");
+						System.out.println("	[Id: "+xxx.getId()+"]\n");
+						System.out.println("|---------------------------------------------|");
+				 }
+				break;
 			case 0:
 				
 				continuar = salir();
