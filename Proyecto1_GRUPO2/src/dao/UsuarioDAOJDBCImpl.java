@@ -42,10 +42,10 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
                     + "ciudad='" + usu.getCiudad() + "',"
                     + "WHERE nombre=" + usu.getNombre();
             if (stmt.executeUpdate(query) != 1) {
-                throw new DAOException("Error updating employee");
+                throw new DAOException("Error updating usuario");
             }
         } catch (SQLException se) {
-            throw new DAOException("Error updating employee in DAO", se);
+            throw new DAOException("Error updating usuario in DAO", se);
         }
 		
 	}
@@ -54,12 +54,12 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 	public void deleteUsuario(String nombre) throws DAOException {
 		Usuario usu = findByNombreUsuario(nombre);
         if (usu == null) {
-            throw new DAOException("Employee nombre: " + nombre + " does not exist to delete.");
+            throw new DAOException("usuario nombre: " + nombre + " no existe para ser exterminado.");
         }
         try (Statement stmt = con.createStatement()) {
-            String query = "DELETE FROM EMPLOYEE WHERE ID=" + nombre;
+            String query = "DELETE FROM usuario WHERE ID=" + nombre;
             if (stmt.executeUpdate(query) != 1) {
-                throw new DAOException("Error deleting employee");
+                throw new DAOException("Error borrando usuario");
             }
         } catch (SQLException se) {
             //se.printStackTrace();
@@ -79,7 +79,7 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 	                    rs.getString("ciudad")));
 	        } catch (SQLException se) {
 	            //se.printStackTrace();
-	            throw new DAOException("Error finding employee in DAO", se);
+	            throw new DAOException("Error encontrando usuario en DAO", se);
 	        }
 	}
 
@@ -98,7 +98,7 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
             return usuarios.toArray(new Usuario[0]);
         } catch (SQLException se) {
             //se.printStackTrace();
-            throw new DAOException("Error getting all employees in DAO: " + se.getMessage(), se);
+            throw new DAOException("error pidiendo todos los usuarios por DAO: " + se.getMessage(), se);
         }
 	}
 
