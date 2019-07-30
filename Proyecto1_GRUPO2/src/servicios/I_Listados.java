@@ -4,16 +4,18 @@ import modelo.Usuario;
 
 import java.util.ArrayList;
 
+import dao.DAOException;
+
 
 
 public interface I_Listados {
 	
-	public ArrayList<Usuario> ListarUsuario();
+	public ArrayList<Usuario> ListarUsuario() throws DAOException;
 		
-	public ArrayList<Pelicula> ListarPeliculas();
+	public ArrayList<Pelicula> ListarPeliculas() throws DAOException;
 	
-	public ArrayList<Pelicula> ListarPeliculasCategoria(String categoria);
+	public ArrayList<Pelicula> ListarPeliculasCategoria(String categoria) throws DAOException;
 	
-	public ArrayList<Pelicula> ListarPeliculasPorUsuario();
+	public ArrayList<Pelicula> ListarPeliculasPorUsuario() throws DAOException;
 	
 }
