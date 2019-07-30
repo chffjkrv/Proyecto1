@@ -45,8 +45,10 @@ public class PeliculaServ implements I_PeliculasServ{
 
 	@Override
 	public Pelicula[] listarPeliculasCategorias(String categoria) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		PeliculaDAOFactory factoryPeli=new PeliculaDAOFactory();
+		I_PeliculaDAO peliDao=factoryPeli.createPeliculaDAO();
+			
+		return peliDao.listarPeliculasCategorias(categoria);
 	}
 
 }

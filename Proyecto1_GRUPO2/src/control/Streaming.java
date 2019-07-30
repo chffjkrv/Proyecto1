@@ -95,11 +95,26 @@ public class Streaming {
 
 				for (Pelicula xxx:  arrPeli) {
 
-					System.out.println("|-------------------------------------|");
+					System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
 					System.out.println(xxx.getNombre());
 					System.out.println(xxx.getAgnoPelicula());
 					System.out.println(xxx.getCategoria());
-					System.out.println("|-------------------------------------|");
+					System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
+				}
+			
+				break;
+				
+			case 2:	
+				PeliculaServ peliServcat = new PeliculaServ();
+				Pelicula[] arrPelicat = peliServcat.listarPeliculas();
+
+				for (Pelicula xxx:  arrPelicat) {
+
+					System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
+					System.out.println(xxx.getNombre());
+					System.out.println(xxx.getAgnoPelicula());
+					System.out.println(xxx.getCategoria());
+					System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
 				}
 			
 				break;
