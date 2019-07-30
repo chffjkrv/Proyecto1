@@ -1,0 +1,4 @@
+LOAD DATA LOCAL INFILE '/Users/admin/Desktop/ProyectoUsusaurio/ListadoPelis/peliculas_cat.csv'
+INTO TABLE peliculas
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n' (pelicula, anio_estreno, categoria);
