@@ -1,7 +1,4 @@
 package control;
-
-
-
 import utilidades.Datos;
 import modelo.Usuario;
 import modelo.Pelicula;
@@ -13,9 +10,14 @@ import dao.PeliculaDAOFactory;
 import dao.UsuarioDAOFactory;
 import gui.Menu;
 
+public static void main(String[] args) {
 
-//import servicios.
 
+}
+
+//import servicios
+
+	
 public class Streaming {
 	 	 
 	public boolean sleccionOpciones() {
