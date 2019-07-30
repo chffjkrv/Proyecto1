@@ -6,3 +6,5 @@ Sprint 1:
 
 Sprint 2:
 - Implementacion de logger en el proyecto para sacar errores y warnings
+- Implementar las clases de la capa Servicios
+- Implementar los metodos de la clase UsuarioServ

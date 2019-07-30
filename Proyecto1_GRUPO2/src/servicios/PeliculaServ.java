@@ -17,14 +17,17 @@ public class PeliculaServ implements I_PeliculasServ{
 
 	@Override
 	public void modificarPeli(Pelicula peli) throws DAOException {
-		
+		PeliculaDAOFactory factoryPeli=new PeliculaDAOFactory();
+		I_PeliculaDAO peliDao=factoryPeli.createPeliculaDAO();
+		peliDao.modificarPeli(peli);
 		
 	}
 
 	@Override
 	public void borrarPeli(int id) throws DAOException {
-		// TODO Auto-generated method stub
-		
+		PeliculaDAOFactory factoryPeli=new PeliculaDAOFactory();
+		I_PeliculaDAO peliDao=factoryPeli.createPeliculaDAO();
+		peliDao.borrarPeli(id);		
 	}
 
 	@Override
@@ -47,8 +50,13 @@ public class PeliculaServ implements I_PeliculasServ{
 	public Pelicula[] listarPeliculasCategorias(String categoria) throws DAOException {
 		PeliculaDAOFactory factoryPeli=new PeliculaDAOFactory();
 		I_PeliculaDAO peliDao=factoryPeli.createPeliculaDAO();
+<<<<<<< HEAD
 			
 		return peliDao.listarPeliculasCategorias(categoria);
+=======
+		
+		return peliDao.listarPeliculasCategorias(categoria);	
+>>>>>>> 07823bf1cd51c276df23f636f3e22beaf06b631c
 	}
 
 }

@@ -57,7 +57,7 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
             throw new DAOException("usuario nombre: " + nombre + " no existe para ser exterminado.");
         }
         try (Statement stmt = con.createStatement()) {
-            String query = "DELETE FROM usuario WHERE ID=" + nombre;
+            String query = "DELETE FROM usuario WHERE NOMBRE=" + nombre;
             if (stmt.executeUpdate(query) != 1) {
                 throw new DAOException("Error borrando usuario");
             }
