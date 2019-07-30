@@ -111,9 +111,9 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 	}
 
 	@Override
-	public Pelicula[] listarPeliculasCategoriaRomantica() throws DAOException {
+	public Pelicula[] listarPeliculasCategorias(String categoria) throws DAOException {
 		try (Statement stmt = con.createStatement()) {
-			String query = "SELECT * FROM peliculas WHERE categoria=romantica";
+			String query = "SELECT * FROM peliculas WHERE categoria='"+ categoria+"'";
 			ResultSet rs = stmt.executeQuery(query);
 
 			ArrayList<Pelicula> pelis = new ArrayList<>();
@@ -125,110 +125,11 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 			return pelis.toArray(new Pelicula[0]);
 		} catch (SQLException se) {
 			// se.printStackTrace();
-			throw new DAOException("Error getting all employees in DAO: " + se.getMessage(), se);
+			throw new DAOException("Error consiguiendo las peliculass por categoria in DAO: " + se.getMessage(), se);
 		}
 	}
 
-	@Override
-	public Pelicula[] listarPeliculasCategoriaPoliciaca() throws DAOException {
-		try (Statement stmt = con.createStatement()) {
-			String query = "SELECT * FROM peliculas WHERE categoria=policiaca";
-			ResultSet rs = stmt.executeQuery(query);
-
-			ArrayList<Pelicula> pelis = new ArrayList<>();
-
-			while (rs.next()) {
-				pelis.add(new Pelicula(rs.getInt("id_pelicula"), rs.getString("pelicula"), rs.getInt("anio_estreno"),
-						rs.getString("categoria")));
-			}
-			return pelis.toArray(new Pelicula[0]);
-		} catch (SQLException se) {
-			// se.printStackTrace();
-			throw new DAOException("Error getting all employees in DAO: " + se.getMessage(), se);
-		}
-	}
-
-	@Override
-	public Pelicula[] listarPeliculasCategoriaAventuras() throws DAOException {
-		
-		try (Statement stmt = con.createStatement()) {
-			String query = "SELECT * FROM peliculas WHERE categoria=aventuras";
-			ResultSet rs = stmt.executeQuery(query);
-
-			ArrayList<Pelicula> pelis = new ArrayList<>();
-
-			while (rs.next()) {
-				pelis.add(new Pelicula(rs.getInt("id_pelicula"), rs.getString("pelicula"), rs.getInt("anio_estreno"),
-						rs.getString("categoria")));
-			}
-			return pelis.toArray(new Pelicula[0]);
-		} catch (SQLException se) {
-			// se.printStackTrace();
-			throw new DAOException("Error getting all employees in DAO: " + se.getMessage(), se);
-		}
-	}
-		
-
-	@Override
-	public Pelicula[] listarPeliculasCategoriaComedia() throws DAOException {
-		try (Statement stmt = con.createStatement()) {
-			String query = "SELECT * FROM peliculas WHERE categoria=comedia";
-			ResultSet rs = stmt.executeQuery(query);
-
-			ArrayList<Pelicula> pelis = new ArrayList<>();
-
-			while (rs.next()) {
-				pelis.add(new Pelicula(rs.getInt("id_pelicula"), rs.getString("pelicula"), rs.getInt("anio_estreno"),
-						rs.getString("categoria")));
-			}
-			return pelis.toArray(new Pelicula[0]);
-		} catch (SQLException se) {
-			// se.printStackTrace();
-			throw new DAOException("Error getting all employees in DAO: " + se.getMessage(), se);
-		}
-	}
-
-	@Override
-	public Pelicula[] listarPeliculasCategoriaAnimacion() throws DAOException {
-		
-		try (Statement stmt = con.createStatement()) {
-			String query = "SELECT * FROM peliculas WHERE categoria=animacion";
-			ResultSet rs = stmt.executeQuery(query);
-
-			ArrayList<Pelicula> pelis = new ArrayList<>();
-
-			while (rs.next()) {
-				pelis.add(new Pelicula(rs.getInt("id_pelicula"), rs.getString("pelicula"), rs.getInt("anio_estreno"),
-						rs.getString("categoria")));
-			}
-			return pelis.toArray(new Pelicula[0]);
-		} catch (SQLException se) {
-			// se.printStackTrace();
-			throw new DAOException("Error getting all employees in DAO: " + se.getMessage(), se);
-		}
-		
-	}
-
-	@Override
-	public Pelicula[] listarPeliculasCategoriaThriller() throws DAOException {
-		
-		try (Statement stmt = con.createStatement()) {
-			String query = "SELECT * FROM peliculas WHERE categoria=thriller";
-			ResultSet rs = stmt.executeQuery(query);
-
-			ArrayList<Pelicula> pelis = new ArrayList<>();
-
-			while (rs.next()) {
-				pelis.add(new Pelicula(rs.getInt("id_pelicula"), rs.getString("pelicula"), rs.getInt("anio_estreno"),
-						rs.getString("categoria")));
-			}
-			return pelis.toArray(new Pelicula[0]);
-		} catch (SQLException se) {
-			// se.printStackTrace();
-			throw new DAOException("Error getting all employees in DAO: " + se.getMessage(), se);
-		}
-		
-	}
+	
 
 	
 
