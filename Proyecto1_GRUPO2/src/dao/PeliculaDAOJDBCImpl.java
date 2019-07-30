@@ -105,7 +105,7 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 			return pelis.toArray(new Pelicula[0]);
 		} catch (SQLException se) {
 			// se.printStackTrace();
-			throw new DAOException("Error getting all employees in DAO: " + se.getMessage(), se);
+			throw new DAOException("Error obteniendo peliculas en DAO: " + se.getMessage(), se);
 		}
 
 	}
@@ -125,7 +125,7 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 			return pelis.toArray(new Pelicula[0]);
 		} catch (SQLException se) {
 			// se.printStackTrace();
-			throw new DAOException("Error consiguiendo las peliculass por categoria in DAO: " + se.getMessage(), se);
+			throw new DAOException("Error consiguiendo las peliculas por categoria in DAO: " + se.getMessage(), se);
 		}
 	}
 

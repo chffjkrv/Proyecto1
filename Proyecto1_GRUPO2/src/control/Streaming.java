@@ -10,13 +10,6 @@ import dao.PeliculaDAOFactory;
 import dao.UsuarioDAOFactory;
 import gui.Menu;
 
-public static void main(String[] args) {
-
-
-}
-
-//import servicios
-
 	
 public class Streaming {
 	 	 
@@ -36,9 +29,9 @@ public class Streaming {
 				Pelicula nuevoPelicula = new Pelicula();
 				System.out.println("Introduzca Nombre de la pelicula: ");
 				nuevoPelicula.setNombre(Datos.recogeString());
-				System.out.println("Introduzca el año de estreno: ");
+				System.out.println("Introduzca el agno de estreno: ");
 				nuevoPelicula.setAgnoPelicula(Datos.recogeInt());
-				System.out.println("Introduzca la categoria de la película: ");
+				System.out.println("Introduzca la categoria de la pelicula: ");
 				nuevoPelicula.setCategoria(Datos.recogeString());
 				PeliculaDAOFactory factoryPeli=new PeliculaDAOFactory();
 				I_PeliculaDAO peliDao=factoryPeli.createPeliculaDAO();
@@ -83,7 +76,7 @@ public class Streaming {
 	}
 	
 	private boolean salir() throws Exception{
-		String sino = Datos.recogeString(" ¿Está seguro? (S/N)");
+		String sino = Datos.recogeString(" ¿Esta seguro? (S/N)");
 		return (sino.toUpperCase().charAt(0)!='S');
 	}
 	
@@ -97,7 +90,7 @@ public class Streaming {
 			
 			case 1:
 				
-				dao.I_PeliculaDAO.listarPelis();
+				//dao.I_PeliculaDAO.listarPeliculas();
 			
 				break;
 				

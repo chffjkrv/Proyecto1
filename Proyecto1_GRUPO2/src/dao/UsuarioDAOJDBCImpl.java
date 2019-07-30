@@ -86,7 +86,7 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 	@Override
 	public Usuario[] getAllUsuarios() throws DAOException {
         try (Statement stmt = con.createStatement()) {
-            String query = "SELECT * FROM usuario";
+            String query = "SELECT * FROM usuarios";
             ResultSet rs = stmt.executeQuery(query);
             // Create an ArrayList to save resulting records
             ArrayList<Usuario> usuarios = new ArrayList<>();
