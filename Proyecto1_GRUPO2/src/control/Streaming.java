@@ -9,7 +9,8 @@ import dao.I_UsuarioDAO;
 import dao.PeliculaDAOFactory;
 import dao.UsuarioDAOFactory;
 import gui.Menu;
-
+import servicios.I_PeliculasServ;
+import servicios.PeliculaServ;
 	
 public class Streaming {
 	 	 
@@ -33,9 +34,8 @@ public class Streaming {
 				nuevoPelicula.setAgnoPelicula(Datos.recogeInt());
 				System.out.println("Introduzca la categoria de la pelicula: ");
 				nuevoPelicula.setCategoria(Datos.recogeString());
-				PeliculaDAOFactory factoryPeli=new PeliculaDAOFactory();
-				I_PeliculaDAO peliDao=factoryPeli.createPeliculaDAO();
-				peliDao.crearPeli(nuevoPelicula);
+				I_PeliculasServ peli = new PeliculaServ();
+				peli.crearPeli(nuevoPelicula);
 				
 				break;
 				

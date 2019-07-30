@@ -16,4 +16,5 @@ public interface I_UsuarioDAO extends AutoCloseable {
     public Usuario[] getAllUsuarios() throws DAOException;
 
 	Usuario findByNombreUsuario(String nombre) throws DAOException;
+	
 }

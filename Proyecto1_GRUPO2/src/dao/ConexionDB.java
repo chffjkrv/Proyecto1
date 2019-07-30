@@ -7,7 +7,7 @@ public class ConexionDB {
 	Connection connection = null;
     String BD = "proyecto1g2bd";
     String driverClassName = "com.mysql.jdbc.Driver";
-    String driverUrl = "jdbc:mysql://localhost/" + BD;
+    String driverUrl = "jdbc:mysql://localhost:3306/"+BD+"?autoReconnect=true&useSSL=false";
     String user = "root";
     String password = "root";
 
