@@ -1,9 +1,19 @@
 package dao;
 
 import modelo.Pelicula;
-
+/**
+ * 
+ * @author Grupo2
+ *@see modelo.Pelicula.
+ */
 public interface I_PeliculaDAO extends AutoCloseable {
 
+	/**
+	 * 
+	 * 
+	 * @throws DAOException.
+	 *
+	 */
 	public void crearPeli(Pelicula peli) throws DAOException;
 
 	public void modificarPeli(Pelicula peli) throws DAOException;

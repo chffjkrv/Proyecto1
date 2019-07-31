@@ -2,7 +2,11 @@ package servicios;
 
 import dao.DAOException;
 import modelo.Pelicula;
-
+/**
+ * 
+ * @author Grupo2
+ *
+ */
 public interface I_PeliculasServ {
 	public void crearPeli(Pelicula peli) throws DAOException;
 

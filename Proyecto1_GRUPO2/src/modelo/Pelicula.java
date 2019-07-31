@@ -1,5 +1,9 @@
 package modelo;
-
+/**
+ * 
+ * @author Grupo2
+ *
+ */
 public class Pelicula {
 
 	private int id;

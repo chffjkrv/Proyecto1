@@ -1,7 +1,11 @@
 package modelo;
 
 import java.sql.Date;
-
+/**
+ * 
+ * @author Grupo2
+ *
+ */
 public class Usuario {
 	private String nombre;
 	private Date fechaNacimiento;
@@ -13,6 +17,12 @@ public class Usuario {
 		super();
 	}
 
+	/**
+     * @param nombre: recoge un string
+     * @param fechaNacimiento: recoge una fecha
+     * @param ciudad: recoge un string
+     */
+	
 	public Usuario(String nombre, Date fechaNacimiento, String ciudad) {
 		super();
 		this.nombre = nombre;

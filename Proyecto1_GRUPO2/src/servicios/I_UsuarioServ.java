@@ -2,7 +2,11 @@ package servicios;
 
 import dao.DAOException;
 import modelo.Usuario;
-
+/**
+ * 
+ * @author Grupo2
+ *
+ */
 public interface I_UsuarioServ {
 
     public void addUsuario(Usuario usu) throws DAOException;

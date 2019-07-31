@@ -4,7 +4,11 @@ import dao.DAOException;
 import dao.I_UsuarioDAO;
 import dao.UsuarioDAOFactory;
 import modelo.Usuario;
-
+/**
+ * 
+ * @author Grupo2
+ *
+ */
 public class UsuarioServ implements I_UsuarioServ{
 
 	@Override

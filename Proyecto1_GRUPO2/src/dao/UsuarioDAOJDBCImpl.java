@@ -1,13 +1,18 @@
 package dao;
 
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import modelo.Usuario;
-
-
+/**
+ * 
+ * @author Grupo2
+ *
+ */
 
 public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 	private Connection con = null;
@@ -17,7 +22,10 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
         con = new ConexionDB().getConnection();
     }
 
-
+	/**
+	 * 
+	 * @throws DAOException
+	 */
 	@Override
 	public void addUsuario(Usuario usu) throws DAOException {
 		 try (Statement stmt = con.createStatement()) {
@@ -32,7 +40,10 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 	        }
 		
 	}
-
+	/**
+	 * 
+	 * @throws DAOException
+	 */
 	@Override
 	public void updateUsuario(Usuario usu) throws DAOException {
         try (Statement stmt = con.createStatement()) {
@@ -48,7 +59,10 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
         }
 		
 	}
-
+	/**
+	 * 
+	 * @throws DAOException
+	 */
 	@Override
 	public void deleteUsuario(String nombre) throws DAOException {
 		Usuario usu = findByNombreUsuario(nombre);
@@ -65,8 +79,13 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
             throw new DAOException("Error deleting employee in DAO", se);
         }		
 	}
-
+	/**
+	 * 
+	 * @throws DAOException
+	 */
+	
 	@Override
+
 	public Usuario findByNombreUsuario(String nombre) throws DAOException {
 		 try (Statement stmt = con.createStatement()) {
 	            String query = "SELECT * FROM USUARIOS WHERE NOMBRE='" + nombre+"'";
@@ -81,12 +100,18 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 	            throw new DAOException("Error encontrando usuario en DAO", se);
 	        }
 	}
-
+	/**
+	 * 
+	 * @throws DAOException
+	 */
 	@Override
 	public Usuario[] getAllUsuarios() throws DAOException {
         try (Statement stmt = con.createStatement()) {
+        	
             String query = "SELECT * FROM usuarios";
+            
             ResultSet rs = stmt.executeQuery(query);
+            
             // Create an ArrayList to save resulting records
             ArrayList<Usuario> usuarios = new ArrayList<>();
             // Iterate through the results and create Employee objects
@@ -94,21 +119,28 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
             	usuarios.add(new Usuario(rs.getString("nombre"), rs.getDate("fecha_nacimiento"),
 	                    rs.getString("ciudad")));
             }
-            return usuarios.toArray(new Usuario[0]);
+            Usuario[] arrUsu = new Usuario[usuarios.size()];
+			usuarios.toArray(arrUsu);
+            return arrUsu;
         } catch (SQLException se) {
             //se.printStackTrace();
             throw new DAOException("error pidiendo todos los usuarios por DAO: " + se.getMessage(), se);
         }
 	}
-
-
+	/**
+	 * 
+	 * @throws DAOException
+	 */
 	@Override
 	public void close() throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
-
-
+	
+	/**
+	 * 
+	 * @throws DAOException
+	 */
 	@Override
 	public Usuario findByIdUsuario(int id) throws DAOException {
 		// TODO Auto-generated method stub

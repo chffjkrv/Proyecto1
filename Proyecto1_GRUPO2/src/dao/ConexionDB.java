@@ -2,16 +2,26 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+/**
+ * 
+ * @author Grupo2
+ *
+ */
 public class ConexionDB {
+
 	Connection connection = null;
-    String BD = "proyecto1g2bd2";
+    String BD = "proyecto1g2bd";
     String driverClassName = "com.mysql.jdbc.Driver";
     String driverUrl = "jdbc:mysql://10.90.36.105:3306/"+BD+"?autoReconnect=true&useSSL=false";
     String user = "root";
     String password = "root";
-
+	/**
+	 * 
+	 * @throws DAOException
+	 *
+	 */
     public ConexionDB() throws DAOException {
+
         try {
           
             Class.forName(driverClassName);
@@ -32,7 +42,11 @@ public class ConexionDB {
     public Connection getConnection() {
         return connection;
     }
-
+    
+    /**
+     * 
+     * @throws DAOException
+     */
     public void close() throws DAOException {
         try {
             connection.close();

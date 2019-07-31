@@ -1,0 +1,33 @@
+CONTROL:
+---------
+	-Test.
+	-Main.
+
+MODELO:
+---------
+	-Pelis.
+	-Usuarios.
+	
+DAO:
+---------
+	-ConexionBD
+	-DAOException
+	-FactoriaDAOPelis 
+	-PelisDAOJDBC
+	-FactoriaUsuarios
+	-UsuariosDAOJDBC
+	-I_PelisDAO
+	-I_UsuarioDAO
+	
+GUI:
+---------
+	-Menu.
+
+SERVICIOS:
+----------
+	-Listados.
+	-I_Listados
+	
+
+	
+	

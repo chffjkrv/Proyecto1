@@ -7,11 +7,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import modelo.Pelicula;
-
+/**
+ * 
+ * @author Grupo2
+ *
+ */
 public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 
 	private Connection con = null;
-
+/**
+ * 
+ * @throws DAOException
+ */
 	PeliculaDAOJDBCImpl() throws DAOException {
 		con = new ConexionDB().getConnection();
 	}
@@ -20,7 +27,10 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 	public void close() throws Exception {
 
 	}
-
+	/**
+	 * 
+	 * @throws DAOException
+	 */
 	@Override
 	public void crearPeli(Pelicula peli) throws DAOException {
 
@@ -37,7 +47,10 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 		}
 
 	}
-
+	/**
+	 * 
+	 * @throws DAOException
+	 */
 	@Override
 	public void modificarPeli(Pelicula peli) throws DAOException {
 		try (Statement stmt = con.createStatement()) {
@@ -51,7 +64,10 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 			throw new DAOException("Error modificando pelicula in DAO", se);
 		}
 	}
-
+	/**
+	 * 
+	 * @throws DAOException
+	 */
 	@Override
 	public void borrarPeli(int id) throws DAOException {
 
@@ -70,7 +86,10 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 		}
 
 	}
-
+	/**
+	 * 
+	 * @throws DAOException
+	 */
 	@Override
 	public Pelicula findById(int id) throws DAOException {
 
@@ -89,7 +108,10 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 		}
 
 	}
-
+	/**
+	 * 
+	 * @throws DAOException
+	 */
 	@Override
 	public Pelicula[] listarPeliculas() throws DAOException {
 		try (Statement stmt = con.createStatement()) {
@@ -113,7 +135,10 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 		}
 
 	}
-
+	/**
+	 * 
+	 * @throws DAOException
+	 */
 	@Override
 	public Pelicula[] listarPeliculasCategorias(String categoria) throws DAOException {
 		try (Statement stmt = con.createStatement()) {
@@ -130,6 +155,7 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 			}
 			Pelicula[] arrPeli = new Pelicula[pelis.size()];
 			pelis.toArray(arrPeli);
+			
 			for (Pelicula xxx: arrPeli) {
 				System.out.println("|---------------------------------------------|");
 				System.out.println("	[Nombre: "+xxx.getNombre()+"]\n");

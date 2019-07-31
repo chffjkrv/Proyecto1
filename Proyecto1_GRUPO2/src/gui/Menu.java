@@ -1,5 +1,9 @@
 package gui;
-
+/**
+ * 
+ * @author Grupo2
+ *
+ */
 public class Menu {
 	
 	public static void mostrarMenu() {

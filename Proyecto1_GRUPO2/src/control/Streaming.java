@@ -1,4 +1,19 @@
 package control;
+
+/**
+* @author Grupo2
+* 
+* @see gui.menu
+* @see dao.I_UsuarioDAO
+* @see dao.UsuarioDAOFactory
+* @see modelo.Usuario
+* @see modelo.Pelicula
+* @see servicios.UsuarioServ
+* @see java.time.LocalDate
+* Recoge la opcion elegida y entra en los distintos casos con sus funciones
+ */
+
+
 import utilidades.Datos;
 import servicios.PeliculaServ;
 import servicios.UsuarioServ;
@@ -7,14 +22,11 @@ import modelo.Pelicula;
 import java.time.LocalDate;
 import java.sql.Date;
 
-import dao.I_PeliculaDAO;
 import dao.I_UsuarioDAO;
-import dao.PeliculaDAOFactory;
 import dao.UsuarioDAOFactory;
 import gui.Menu;
 import servicios.I_PeliculasServ;
 import servicios.I_UsuarioServ;
-import servicios.PeliculaServ;
 	
 public class Streaming {
 	 	 
@@ -124,7 +136,6 @@ public class Streaming {
 
 				for (Pelicula xxx:  arrPelicat) {
 
-					
 
 					System.out.println("|---------------------------------------------|");
 					System.out.println("	[Nombre: "+xxx.getNombre()+"]\n");
@@ -153,10 +164,11 @@ public class Streaming {
 				break;
 				
 			case 3:
+				System.out.println("pedimos listado...");
 				UsuarioServ userServ = new UsuarioServ();
 				Usuario[] arrUser = userServ.getAllUsuarios();
-
 				for (Usuario xxx:  arrUser) {
+					System.out.println("empezamos a listar usuarios");
 					System.out.println("|---------------------------------------------|");
 					System.out.println("	[Nombre: "+xxx.getNombre()+"]\n");
 					System.out.println("	[Fecha de Nacimiento: "+xxx.getFechaNacimiento()+"]\n");
