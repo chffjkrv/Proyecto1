@@ -7,23 +7,25 @@ public class ConexionDB {
 	Connection connection = null;
     String BD = "proyecto1g2bd";
     String driverClassName = "com.mysql.jdbc.Driver";
-    String driverUrl = "jdbc:mysql://localhost:3306/"+BD+"?autoReconnect=true&useSSL=false";
+    String driverUrl = "jdbc:mysql://10.90.36.105:3306/"+BD+"?autoReconnect=true&useSSL=false";
     String user = "root";
     String password = "root";
 
-    public ConexionDB() {
+    public ConexionDB() throws DAOException {
         try {
           
             Class.forName(driverClassName);
             connection = DriverManager.getConnection(driverUrl, user, password);
         } catch (ClassNotFoundException e) {
-            System.out.println("No se encuentra el driver");
+        	throw new DAOException("No se encuentra el driver",e);
         } catch (SQLException e) {
-            System.out.println("Excepcion SQL: " + e.getMessage());
-            System.out.println("Estado SQL: " + e.getSQLState());
-            System.out.println("Codigo del Error: " + e.getErrorCode());
-            System.out.println("ERROR. No se puede conectar con la Bases de Datos: " + e);
-            System.exit(-1);
+        	throw new DAOException("Excepcion SQL: " + e.getMessage(),e);
+			/*
+			 * System.out.println("Estado SQL: " + e.getSQLState());
+			 * System.out.println("Codigo del Error: " + e.getErrorCode());
+			 * System.out.println("ERROR. No se puede conectar con la Bases de Datos: " +
+			 * e); System.exit(-1);
+			 */
         }
     }
 
@@ -31,11 +33,11 @@ public class ConexionDB {
         return connection;
     }
 
-    public void close() {
+    public void close() throws DAOException {
         try {
             connection.close();
         } catch (SQLException se) {
-            System.out.println("Exception closing Connection: " + se);
+        	throw new DAOException("Exception closing Connection: ",se);
         }
 
 }

@@ -12,7 +12,7 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 
 	private Connection con = null;
 
-	PeliculaDAOJDBCImpl() {
+	PeliculaDAOJDBCImpl() throws DAOException {
 		con = new ConexionDB().getConnection();
 	}
 

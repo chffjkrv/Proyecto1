@@ -5,6 +5,7 @@ import servicios.UsuarioServ;
 import modelo.Usuario;
 import modelo.Pelicula;
 import java.time.LocalDate;
+import java.sql.Date;
 
 import dao.I_PeliculaDAO;
 import dao.I_UsuarioDAO;
@@ -46,9 +47,10 @@ public class Streaming {
 				//Alta de un ususarios
 				Usuario nuevoUsuario = new Usuario();
 				System.out.println("Introduzca el nombre del usuario: ");
-				nuevoUsuario.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi
-				LocalDate fechaNazi = LocalDate.of(Datos.recogeInt(), Datos.recogeInt(), Datos.recogeInt()); //no me he equivocado, ha sido intencionado.
-				System.out.println("Introduzca la fecha de nacimiento: " +fechaNazi.getDayOfMonth()+"/"+fechaNazi.getDayOfMonth()+"/"+fechaNazi.getYear());				
+				nuevoUsuario.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi				
+				System.out.println("Introduzca la fecha de nacimiento: ");	
+				LocalDate fechaNazi = LocalDate.of(Datos.recogeInt("Introduce el anio:"), Datos.recogeInt("Introduce el mes:"), Datos.recogeInt("Introduce el dia:")); //no me he equivocado, ha sido intencionado.
+				nuevoUsuario.setFechaNacimiento(Date.valueOf(fechaNazi));
 				System.out.println("Introduzca la cuidad: ");
 				nuevoUsuario.setCiudad(Datos.recogeString());
 				UsuarioDAOFactory factoryUser=new UsuarioDAOFactory();
@@ -67,16 +69,16 @@ public class Streaming {
 				
 			case 4:
 				//Modificar un ususario
-				Usuario nuevoUsuario = new Usuario();
-				System.out.println("Introduzca el nombre del usuario: ");
-				nuevoUsuario.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi
-				LocalDate fechaNazi = LocalDate.of(Datos.recogeInt(), Datos.recogeInt(), Datos.recogeInt()); //no me he equivocado, ha sido intencionado.
-				System.out.println("Introduzca la fecha de nacimiento: " +fechaNazi.getDayOfMonth()+"/"+fechaNazi.getDayOfMonth()+"/"+fechaNazi.getYear());				
-				System.out.println("Introduzca la cuidad: ");
-				nuevoUsuario.setCiudad(Datos.recogeString());
-				UsuarioDAOFactory factoryUser=new UsuarioDAOFactory();
-				I_UsuarioDAO userDao=factoryUser.createUsuarioDAO();
-				userDao.addUsuario(nuevoUsuario);
+				Usuario nuevoUsuario2 = new Usuario();
+				System.out.println("Introduzca el nombre del usuario a modificar: ");
+				nuevoUsuario2.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi				
+				System.out.println("Introduzca la nueva fecha de nacimiento: ");	
+				LocalDate fechaNazi2 = LocalDate.of(Datos.recogeInt("Introduce el anio:"), Datos.recogeInt("Introduce el mes:"), Datos.recogeInt("Introduce el dia:")); //no me he equivocado, ha sido intencionado.
+				nuevoUsuario2.setFechaNacimiento(Date.valueOf(fechaNazi2));
+				System.out.println("Introduzca la nueva cuidad: ");
+				nuevoUsuario2.setCiudad(Datos.recogeString());
+				I_UsuarioServ usu1 = new UsuarioServ();
+				usu1.updateUsuario(nuevoUsuario2);
 				
 				break;
 			
