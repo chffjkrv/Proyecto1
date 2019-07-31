@@ -4,14 +4,19 @@ import servicios.PeliculaServ;
 import servicios.UsuarioServ;
 import modelo.Usuario;
 import modelo.Pelicula;
+
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 
+import dao.DAOException;
 import dao.I_PeliculaDAO;
 import dao.I_UsuarioDAO;
 import dao.PeliculaDAOFactory;
 import dao.UsuarioDAOFactory;
 import gui.Menu;
 import servicios.I_PeliculasServ;
+import servicios.I_UsuarioServ;
 import servicios.PeliculaServ;
 	
 public class Streaming {
@@ -50,39 +55,37 @@ public class Streaming {
 				System.out.println("Introduzca la fecha de nacimiento: " +fechaNazi.getDayOfMonth()+"/"+fechaNazi.getDayOfMonth()+"/"+fechaNazi.getYear());				
 				System.out.println("Introduzca la cuidad: ");
 				nuevoUsuario.setCiudad(Datos.recogeString());
-				UsuarioDAOFactory factoryUser=new UsuarioDAOFactory();
-				I_UsuarioDAO userDao=factoryUser.createUsuarioDAO();
-				userDao.addUsuario(nuevoUsuario);
+				I_UsuarioServ ususaurio = new UsuarioServ();
+				ususaurio.addUsuario(nuevoUsuario);
 				
 				break;
 				
 			case 3:
 				//Borrar un ususario
-				Usuario nuevoUsuario = new Usuario();
+				Usuario nuevoUsuario1 = new Usuario();
 				System.out.println("Introduzca el nombre del usuario: ");
-				nuevoUsuario.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi
-				LocalDate fechaNazi = LocalDate.of(Datos.recogeInt(), Datos.recogeInt(), Datos.recogeInt()); //no me he equivocado, ha sido intencionado.
-				System.out.println("Introduzca la fecha de nacimiento: " +fechaNazi.getDayOfMonth()+"/"+fechaNazi.getDayOfMonth()+"/"+fechaNazi.getYear());				
+				nuevoUsuario1.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi
+				LocalDate fechaNazi1 = LocalDate.of(Datos.recogeInt(), Datos.recogeInt(), Datos.recogeInt()); //no me he equivocado, ha sido intencionado.
+				System.out.println("Introduzca la fecha de nacimiento: " +fechaNazi1.getDayOfMonth()+"/"+fechaNazi1.getDayOfMonth()+"/"+fechaNazi1.getYear());				
 				System.out.println("Introduzca la cuidad: ");
-				nuevoUsuario.setCiudad(Datos.recogeString());
-				UsuarioDAOFactory factoryUser=new UsuarioDAOFactory();
-				I_UsuarioDAO userDao=factoryUser.createUsuarioDAO();
-				userDao.addUsuario(nuevoUsuario);
+				nuevoUsuario1.setCiudad(Datos.recogeString());
+				I_UsuarioServ usu = new UsuarioServ();
+				usu.deleteUsuario(nuevoUsuario1.getNombre());
 				
 				break;
 				
 			case 4:
 				//Modificar un ususario
-				Usuario nuevoUsuario = new Usuario();
+				Usuario nuevoUsuario2 = new Usuario();
 				System.out.println("Introduzca el nombre del usuario: ");
-				nuevoUsuario.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi
-				LocalDate fechaNazi = LocalDate.of(Datos.recogeInt(), Datos.recogeInt(), Datos.recogeInt()); //no me he equivocado, ha sido intencionado.
-				System.out.println("Introduzca la fecha de nacimiento: " +fechaNazi.getDayOfMonth()+"/"+fechaNazi.getDayOfMonth()+"/"+fechaNazi.getYear());				
+				nuevoUsuario2.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi
+				LocalDate fechaNazi2 = LocalDate.of(Datos.recogeInt(), Datos.recogeInt(), Datos.recogeInt()); //no me he equivocado, ha sido intencionado.
+				System.out.println("Introduzca la fecha de nacimiento: " +fechaNazi2.getDayOfMonth()+"/"+fechaNazi2.getDayOfMonth()+"/"+fechaNazi2.getYear());				
 				System.out.println("Introduzca la cuidad: ");
-				nuevoUsuario.setCiudad(Datos.recogeString());
-				UsuarioDAOFactory factoryUser=new UsuarioDAOFactory();
-				I_UsuarioDAO userDao=factoryUser.createUsuarioDAO();
-				userDao.addUsuario(nuevoUsuario);
+				nuevoUsuario2.setCiudad(Datos.recogeString());
+				I_UsuarioServ usu1 = new UsuarioServ();
+				usu1.updateUsuario(nuevoUsuario2);
+				
 				
 				break;
 			
@@ -154,7 +157,7 @@ public class Streaming {
 					System.out.println("	[Nombre: "+xxx.getNombre()+"]\n");
 					System.out.println("	[Anio estreno: "+xxx.getAgnoPelicula()+"]\n");
 					System.out.println("	[Categoria: "+xxx.getCategoria()+"]\n");
-					//System.out.println("	[Id: "+xxx.getId()+"]\n");
+					System.out.println("	[Id: "+xxx.getId()+"]\n");
 					System.out.println("|---------------------------------------------|");
 
 				}
@@ -171,7 +174,7 @@ public class Streaming {
 						System.out.println("	[Nombre: "+xxx.getNombre()+"]\n");
 						System.out.println("	[Anio estreno: "+xxx.getAgnoPelicula()+"]\n");
 						System.out.println("	[Categoria: "+xxx.getCategoria()+"]\n");
-						//System.out.println("	[Id: "+xxx.getId()+"]\n");
+						System.out.println("	[Id: "+xxx.getId()+"]\n");
 						System.out.println("|---------------------------------------------|");
 				 }
 				break;
