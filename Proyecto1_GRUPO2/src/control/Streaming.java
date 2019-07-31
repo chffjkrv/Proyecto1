@@ -62,6 +62,7 @@ public class Streaming {
 				
 			case 3:
 				//Borrar un ususario
+<<<<<<< HEAD
 				Usuario nuevoUsuario1 = new Usuario();
 				System.out.println("Introduzca el nombre del usuario: ");
 				nuevoUsuario1.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi
@@ -71,6 +72,11 @@ public class Streaming {
 				nuevoUsuario1.setCiudad(Datos.recogeString());
 				I_UsuarioServ usu = new UsuarioServ();
 				usu.deleteUsuario(nuevoUsuario1.getNombre());
+=======
+				System.out.println("Introduzca el nombre del usuario a borrar: ");
+				I_UsuarioServ user = new UsuarioServ();
+				user.deleteUsuario(Datos.recogeString());
+>>>>>>> c3a93125c925466c91631f51875e467bbee606c4
 				
 				break;
 				
