@@ -1,6 +1,7 @@
 package control;
 import utilidades.Datos;
 import servicios.PeliculaServ;
+import servicios.UsuarioServ;
 import modelo.Usuario;
 import modelo.Pelicula;
 import java.time.LocalDate;
@@ -54,6 +55,36 @@ public class Streaming {
 				userDao.addUsuario(nuevoUsuario);
 				
 				break;
+				
+			case 3:
+				//Borrar un ususario
+				Usuario nuevoUsuario = new Usuario();
+				System.out.println("Introduzca el nombre del usuario: ");
+				nuevoUsuario.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi
+				LocalDate fechaNazi = LocalDate.of(Datos.recogeInt(), Datos.recogeInt(), Datos.recogeInt()); //no me he equivocado, ha sido intencionado.
+				System.out.println("Introduzca la fecha de nacimiento: " +fechaNazi.getDayOfMonth()+"/"+fechaNazi.getDayOfMonth()+"/"+fechaNazi.getYear());				
+				System.out.println("Introduzca la cuidad: ");
+				nuevoUsuario.setCiudad(Datos.recogeString());
+				UsuarioDAOFactory factoryUser=new UsuarioDAOFactory();
+				I_UsuarioDAO userDao=factoryUser.createUsuarioDAO();
+				userDao.addUsuario(nuevoUsuario);
+				
+				break;
+				
+			case 4:
+				//Modificar un ususario
+				Usuario nuevoUsuario = new Usuario();
+				System.out.println("Introduzca el nombre del usuario: ");
+				nuevoUsuario.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi
+				LocalDate fechaNazi = LocalDate.of(Datos.recogeInt(), Datos.recogeInt(), Datos.recogeInt()); //no me he equivocado, ha sido intencionado.
+				System.out.println("Introduzca la fecha de nacimiento: " +fechaNazi.getDayOfMonth()+"/"+fechaNazi.getDayOfMonth()+"/"+fechaNazi.getYear());				
+				System.out.println("Introduzca la cuidad: ");
+				nuevoUsuario.setCiudad(Datos.recogeString());
+				UsuarioDAOFactory factoryUser=new UsuarioDAOFactory();
+				I_UsuarioDAO userDao=factoryUser.createUsuarioDAO();
+				userDao.addUsuario(nuevoUsuario);
+				
+				break;
 			
 			case 5:
 				//listados
@@ -89,41 +120,43 @@ public class Streaming {
 			
 			switch(opcion) {
 			
-			case 1:
-				PeliculaServ peliServ = new PeliculaServ();
-				Pelicula[] arrPeli = peliServ.listarPeliculas();
-
-				for (Pelicula xxx:  arrPeli) {
-
-<<<<<<< HEAD
-					System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
-					System.out.println(xxx.getNombre());
-					System.out.println(xxx.getAgnoPelicula());
-					System.out.println(xxx.getCategoria());
-					System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
-				}
-			
-				break;
+			/*
+			 * case 1: PeliculaServ peliServ = new PeliculaServ(); Pelicula[] arrPeli =
+			 * peliServ.listarPeliculas();
+			 * 
+			 * for (Pelicula xxx: arrPeli) {
+			 * 
+			 * 
+			 * System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
+			 * System.out.println(xxx.getNombre());
+			 * System.out.println(xxx.getAgnoPelicula());
+			 * System.out.println(xxx.getCategoria());
+			 * System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|"); }
+			 * 
+			 * break;
+			 */
 				
-			case 2:	
+			case 1:	
 				PeliculaServ peliServcat = new PeliculaServ();
 				Pelicula[] arrPelicat = peliServcat.listarPeliculas();
 
 				for (Pelicula xxx:  arrPelicat) {
 
-					System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
-					System.out.println(xxx.getNombre());
-					System.out.println(xxx.getAgnoPelicula());
-					System.out.println(xxx.getCategoria());
-					System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
-=======
+					/*
+					 * System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
+					 * System.out.println(xxx.getNombre());
+					 * System.out.println(xxx.getAgnoPelicula());
+					 * System.out.println(xxx.getCategoria());
+					 * System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
+					 */
+
 					System.out.println("|---------------------------------------------|");
 					System.out.println("	[Nombre: "+xxx.getNombre()+"]\n");
 					System.out.println("	[Anio estreno: "+xxx.getAgnoPelicula()+"]\n");
 					System.out.println("	[Categoria: "+xxx.getCategoria()+"]\n");
-					System.out.println("	[Id: "+xxx.getId()+"]\n");
+					//System.out.println("	[Id: "+xxx.getId()+"]\n");
 					System.out.println("|---------------------------------------------|");
->>>>>>> 07823bf1cd51c276df23f636f3e22beaf06b631c
+
 				}
 			
 				break;
@@ -138,10 +171,25 @@ public class Streaming {
 						System.out.println("	[Nombre: "+xxx.getNombre()+"]\n");
 						System.out.println("	[Anio estreno: "+xxx.getAgnoPelicula()+"]\n");
 						System.out.println("	[Categoria: "+xxx.getCategoria()+"]\n");
-						System.out.println("	[Id: "+xxx.getId()+"]\n");
+						//System.out.println("	[Id: "+xxx.getId()+"]\n");
 						System.out.println("|---------------------------------------------|");
 				 }
 				break;
+				
+			case 6:
+				UsuarioServ userServ = new UsuarioServ();
+				Usuario[] arrUser = userServ.getAllUsuarios();
+
+				for (Usuario xxx:  arrUser) {
+					System.out.println("|---------------------------------------------|");
+					System.out.println("	[Nombre: "+xxx.getNombre()+"]\n");
+					System.out.println("	[Fecha de Nacimiento: "+xxx.getFechaNacimiento()+"]\n");
+					System.out.println("	[Ciudad: "+xxx.getCiudad()+"]\n");
+					System.out.println("|---------------------------------------------|");
+
+				}
+				break;
+				
 			case 0:
 				
 				continuar = salir();
