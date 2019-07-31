@@ -19,9 +19,9 @@ public class Menu {
 		System.out.println(" 		Opciones  para listados:		");
 		System.out.println("			1.Listado de peliculas");
 		System.out.println("			2.Listado de peliculas por categoria");
-		System.out.println("			3.Listado de peliculas mas vistas");
-		System.out.println("			4.Listado de peliculas mas valoradas");
-		System.out.println("			5.Listado de peliculas menos vistas");
-		System.out.println("			6..Listado de usuario");
+		//System.out.println("			3.Listado de peliculas mas vistas");
+		//System.out.println("			4.Listado de peliculas mas valoradas");
+		//System.out.println("			5.Listado de peliculas menos vistas");
+		System.out.println("			3..Listado de usuario");
 	}
 }
