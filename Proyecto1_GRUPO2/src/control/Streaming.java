@@ -62,7 +62,6 @@ public class Streaming {
 				
 			case 3:
 				//Borrar un ususario
-<<<<<<< HEAD
 				Usuario nuevoUsuario1 = new Usuario();
 				System.out.println("Introduzca el nombre del usuario: ");
 				nuevoUsuario1.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi
@@ -72,11 +71,10 @@ public class Streaming {
 				nuevoUsuario1.setCiudad(Datos.recogeString());
 				I_UsuarioServ usu = new UsuarioServ();
 				usu.deleteUsuario(nuevoUsuario1.getNombre());
-=======
 				System.out.println("Introduzca el nombre del usuario a borrar: ");
 				I_UsuarioServ user = new UsuarioServ();
 				user.deleteUsuario(Datos.recogeString());
->>>>>>> c3a93125c925466c91631f51875e467bbee606c4
+
 				
 				break;
 				
@@ -129,21 +127,6 @@ public class Streaming {
 			
 			switch(opcion) {
 			
-			/*
-			 * case 1: PeliculaServ peliServ = new PeliculaServ(); Pelicula[] arrPeli =
-			 * peliServ.listarPeliculas();
-			 * 
-			 * for (Pelicula xxx: arrPeli) {
-			 * 
-			 * 
-			 * System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
-			 * System.out.println(xxx.getNombre());
-			 * System.out.println(xxx.getAgnoPelicula());
-			 * System.out.println(xxx.getCategoria());
-			 * System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|"); }
-			 * 
-			 * break;
-			 */
 				
 			case 1:	
 				PeliculaServ peliServcat = new PeliculaServ();
@@ -151,13 +134,6 @@ public class Streaming {
 
 				for (Pelicula xxx:  arrPelicat) {
 
-					/*
-					 * System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
-					 * System.out.println(xxx.getNombre());
-					 * System.out.println(xxx.getAgnoPelicula());
-					 * System.out.println(xxx.getCategoria());
-					 * System.out.println("|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-|");
-					 */
 
 					System.out.println("|---------------------------------------------|");
 					System.out.println("	[Nombre: "+xxx.getNombre()+"]\n");

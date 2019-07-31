@@ -117,17 +117,27 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 	@Override
 	public Pelicula[] listarPeliculasCategorias(String categoria) throws DAOException {
 		try (Statement stmt = con.createStatement()) {
-			String query = "SELECT * FROM peliculas WHERE categoria='"+ categoria+"'";
+			String query = "SELECT * FROM proyecto1g2bd2.peliculas WHERE peliculas.categoria LIKE '%"+categoria+"%'";
+			System.out.println(query);
 			ResultSet rs = stmt.executeQuery(query);
 
 			ArrayList<Pelicula> pelis = new ArrayList<>();
 
 			while (rs.next()) {
+				System.out.println("-- añado "+rs.getInt("id_pelicula"));
 				pelis.add(new Pelicula(rs.getInt("id_pelicula"), rs.getString("pelicula"), rs.getInt("anio_estreno"),
 						rs.getString("categoria")));
 			}
 			Pelicula[] arrPeli = new Pelicula[pelis.size()];
 			pelis.toArray(arrPeli);
+			for (Pelicula xxx: arrPeli) {
+				System.out.println("|---------------------------------------------|");
+				System.out.println("	[Nombre: "+xxx.getNombre()+"]\n");
+				System.out.println("	[Anio estreno: "+xxx.getAgnoPelicula()+"]\n");
+				System.out.println("	[Categoria: "+xxx.getCategoria()+"]\n");
+				System.out.println("	[Id: "+xxx.getId()+"]\n");
+				System.out.println("|---------------------------------------------|");
+		 }
 			return arrPeli;
 		} catch (SQLException se) {
 			// se.printStackTrace();
