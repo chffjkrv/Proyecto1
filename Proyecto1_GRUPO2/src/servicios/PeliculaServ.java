@@ -54,7 +54,12 @@ public class PeliculaServ implements I_PeliculasServ{
 			
 		return peliDao.listarPeliculasCategorias(categoria);
 
+<<<<<<< HEAD
 		
+=======
+	
+
+>>>>>>> 8af2231d07c9955a5de368443a68e49a008de7ec
 	}
 
 }

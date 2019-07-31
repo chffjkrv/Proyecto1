@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public class ConexionDB {
 	Connection connection = null;
-    String BD = "proyecto1g2bd";
+    String BD = "proyecto1g2bd2";
     String driverClassName = "com.mysql.jdbc.Driver";
     String driverUrl = "jdbc:mysql://10.90.36.105:3306/"+BD+"?autoReconnect=true&useSSL=false";
     String user = "root";
