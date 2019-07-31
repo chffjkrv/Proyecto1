@@ -12,6 +12,7 @@ import dao.PeliculaDAOFactory;
 import dao.UsuarioDAOFactory;
 import gui.Menu;
 import servicios.I_PeliculasServ;
+import servicios.I_UsuarioServ;
 import servicios.PeliculaServ;
 	
 public class Streaming {
@@ -58,16 +59,9 @@ public class Streaming {
 				
 			case 3:
 				//Borrar un ususario
-				Usuario nuevoUsuario = new Usuario();
-				System.out.println("Introduzca el nombre del usuario: ");
-				nuevoUsuario.setNombre(Datos.recogeString()); //no me he equivocado de fecha nazi
-				LocalDate fechaNazi = LocalDate.of(Datos.recogeInt(), Datos.recogeInt(), Datos.recogeInt()); //no me he equivocado, ha sido intencionado.
-				System.out.println("Introduzca la fecha de nacimiento: " +fechaNazi.getDayOfMonth()+"/"+fechaNazi.getDayOfMonth()+"/"+fechaNazi.getYear());				
-				System.out.println("Introduzca la cuidad: ");
-				nuevoUsuario.setCiudad(Datos.recogeString());
-				UsuarioDAOFactory factoryUser=new UsuarioDAOFactory();
-				I_UsuarioDAO userDao=factoryUser.createUsuarioDAO();
-				userDao.addUsuario(nuevoUsuario);
+				System.out.println("Introduzca el nombre del usuario a borrar: ");
+				I_UsuarioServ user = new UsuarioServ();
+				user.deleteUsuario(Datos.recogeString());
 				
 				break;
 				
