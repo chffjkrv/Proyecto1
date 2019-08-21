@@ -1,6 +1,0 @@
-TAREAS:
---------------
-
--Atomizar tareas del backlog.
--Cambiar prioridad de tareas.
--Como crear nueva rama desde el principal y pasar todos a la nueva.

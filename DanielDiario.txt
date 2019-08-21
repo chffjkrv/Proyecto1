@@ -1,3 +1,0 @@
--He configurado todo el sistema de repositorios git y github para poder trabajar sobre el.
--He creado proyecto ecplise, subido a git e importado a eclipse desde el mismo git.
--
