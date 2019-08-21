@@ -15,11 +15,12 @@ public class ConexionDB {
     String driverUrl = "jdbc:mysql://10.90.36.105:3306/"+BD+"?autoReconnect=true&useSSL=false";
     String user = "root";
     String password = "root";
-	/**
-	 * 
-	 * @throws DAOException
-	 *
-	 */
+
+    /**
+     * Sirve para establecer la conecxion con la DB
+     * @throws DAOException: genera una excepcion si hay un error al encontrar un driver o un error de SQL
+     */
+    
     public ConexionDB() throws DAOException {
 
         try {
@@ -39,13 +40,17 @@ public class ConexionDB {
         }
     }
 
+    /**
+     * 
+     * @return connection
+     */
     public Connection getConnection() {
         return connection;
     }
     
     /**
      * 
-     * @throws DAOException
+     * @throws DAOException: genera una excepcion si hay un error al cerrar la conecxion con la BD
      */
     public void close() throws DAOException {
         try {

@@ -23,8 +23,9 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
     }
 
 	/**
-	 * 
-	 * @throws DAOException
+	 * Sirve para anadir un usuario
+	 * @param usu: recibe un objeto usuario
+	 * @exception DAOException: genera excepcion por si hay error al añadir usuario
 	 */
 	@Override
 	public void addUsuario(Usuario usu) throws DAOException {
@@ -41,7 +42,8 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 		
 	}
 	/**
-	 * 
+	 * Sirve para actuyalizar un usuario buscando con nombre
+	 * @param usu: recibe un objeto usuario
 	 * @throws DAOException
 	 */
 	@Override
@@ -60,8 +62,9 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 		
 	}
 	/**
-	 * 
-	 * @throws DAOException
+	 * Sirve para eliminar un usuario buscando por nombre
+	 * @param nombre: recibe un string
+	 * @throws DAOException 
 	 */
 	@Override
 	public void deleteUsuario(String nombre) throws DAOException {
@@ -80,7 +83,9 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
         }		
 	}
 	/**
-	 * 
+	 * Sirve para buscar un usuario por su nombre y conseguir todos los datos asosiados
+	 * @param nombre: recibe un string 
+	 * @return usuario: devuelve un objerto usuario
 	 * @throws DAOException
 	 */
 	
@@ -101,7 +106,8 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 	        }
 	}
 	/**
-	 * 
+	 * Sirve para conseguir todos los usuarios
+	 * @return arrUsu: devuelve un array
 	 * @throws DAOException
 	 */
 	@Override
@@ -128,7 +134,7 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
         }
 	}
 	/**
-	 * 
+	 * Cierra
 	 * @throws DAOException
 	 */
 	@Override
@@ -138,7 +144,9 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
 	}
 	
 	/**
-	 * 
+	 * Sirve para buscar un usuario con su id 
+	 * @param id: recibe un entero
+	 * @return null: devuelve un null
 	 * @throws DAOException
 	 */
 	@Override

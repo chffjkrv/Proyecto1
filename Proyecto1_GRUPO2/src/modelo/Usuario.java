@@ -31,24 +31,48 @@ public class Usuario {
 	}
 	
 	
+	/**
+	 * @return the nombre
+	 */
 	public String getNombre() {
 		return nombre;
 	}
+
+	/**
+	 * @param nombre the nombre to set
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	/**
+	 * @return the fechaNacimiento
+	 */
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
+
+	/**
+	 * @param fechaNacimiento the fechaNacimiento to set
+	 */
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+
+	/**
+	 * @return the ciudad
+	 */
 	public String getCiudad() {
 		return ciudad;
 	}
+
+	/**
+	 * @param ciudad the ciudad to set
+	 */
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

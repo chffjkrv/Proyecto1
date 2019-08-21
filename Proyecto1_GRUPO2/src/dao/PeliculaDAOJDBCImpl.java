@@ -16,7 +16,7 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 
 	private Connection con = null;
 /**
- * 
+ * Sirve para establecer una conecxion con la BD
  * @throws DAOException
  */
 	PeliculaDAOJDBCImpl() throws DAOException {
@@ -28,8 +28,9 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 
 	}
 	/**
-	 * 
-	 * @throws DAOException
+	 * Sirve para crear una pelicula y añadirlo en la BD
+	 * @param peli: recibe un objeto Pelicula
+	 * @throws DAOException: genera un error si hay al crear la pelicula
 	 */
 	@Override
 	public void crearPeli(Pelicula peli) throws DAOException {
@@ -48,8 +49,9 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 
 	}
 	/**
-	 * 
-	 * @throws DAOException
+	 * Sirve para modificar la Pelicula
+	 * @param peli: recibe un objeto Pelicula
+	 * @throws DAOException: genera un error si hay error al modificar la pelicula
 	 */
 	@Override
 	public void modificarPeli(Pelicula peli) throws DAOException {
@@ -65,8 +67,9 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 		}
 	}
 	/**
-	 * 
-	 * @throws DAOException
+	 * Sirve para borar una pelicula mediante por un identificador
+	 * @param id: recibe un entero
+	 * @throws DAOException: genera un error si hay un error al borrar la pelicula
 	 */
 	@Override
 	public void borrarPeli(int id) throws DAOException {
@@ -87,7 +90,9 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 
 	}
 	/**
-	 * 
+	 * Sirve para buscar una pelicula mediante un identificador
+	 * @param id: recibe un entero identificador
+	 * @return Pelicula: devuelve un objeto pelicula con sus atributos
 	 * @throws DAOException
 	 */
 	@Override
@@ -109,8 +114,9 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 
 	}
 	/**
-	 * 
-	 * @throws DAOException
+	 * Sirve para crear un listado de todas las peliculas en la BD
+	 * @return Pelicula[]: devuelve un array de pelicula
+	 * @throws DAOException: genera una excepcion si hay  un error al obtener una pelicula de la BD
 	 */
 	@Override
 	public Pelicula[] listarPeliculas() throws DAOException {
@@ -136,8 +142,10 @@ public class PeliculaDAOJDBCImpl implements I_PeliculaDAO {
 
 	}
 	/**
-	 * 
-	 * @throws DAOException
+	 * Sirve para listar las peliculas dependiendo de su categoria
+	 * @param categoria: recibe un string
+	 * @retun Pelicula[]: devuelve un arrrayList de peliculas
+	 * @throws DAOException: genera una excepcion si hay un error al conseguir las peliculas
 	 */
 	@Override
 	public Pelicula[] listarPeliculasCategorias(String categoria) throws DAOException {
