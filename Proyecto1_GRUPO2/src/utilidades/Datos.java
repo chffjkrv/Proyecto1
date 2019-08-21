@@ -1,9 +1,6 @@
 package utilidades;
 
-/**
- *
- * @author Antonio Santos
- */
+
 import java.util.Scanner;
 
 public class Datos {

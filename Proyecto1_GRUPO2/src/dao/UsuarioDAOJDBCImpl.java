@@ -55,7 +55,7 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
                 throw new DAOException("Error updating usuario");
             }
         } catch (SQLException se) {
-            throw new DAOException("Error updating usuario in DAO"+se.getMessage(), se);
+            throw new DAOException("Error updating usuario en DAO"+se.getMessage(), se);
         }
 		
 	}
@@ -76,7 +76,7 @@ public class UsuarioDAOJDBCImpl implements I_UsuarioDAO{
             }
         } catch (SQLException se) {
             //se.printStackTrace();
-            throw new DAOException("Error deleting employee in DAO", se);
+            throw new DAOException("Error deleting employee en DAO", se);
         }		
 	}
 	/**

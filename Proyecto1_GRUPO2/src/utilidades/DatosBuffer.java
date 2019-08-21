@@ -1,9 +1,5 @@
 package utilidades;
-/**
- * 
- * @author Antonio
- *
- */
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
